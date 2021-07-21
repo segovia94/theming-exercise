@@ -1,0 +1,32 @@
+:root {
+  --black: #3a3009;
+  --white: #ffffff;
+  --dark-blue: #173f5f;
+  --blue: #20639b;
+  --light-blue: #2977b8;
+  --yellow: #f6d55c;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 70%;
+  margin: 2rem auto;
+}
+
+h1 {
+  font-family: 'Festive', cursive;
+  color: var(--dark-blue);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.hedgehog {
+  max-width: 50%;
+  margin: 0 auto;
+  height: auto;
+}

@@ -1,0 +1,102 @@
+/* Essential Styles */
+.menu,
+.menu ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.menu li {
+  position: relative;
+  display: flex;
+}
+.menu__toggle {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.menu a,
+.menu__toggle {
+  flex-grow: 1;
+}
+/* Submenu */
+.menu ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  min-width: 12rem;
+}
+.menu ul ul {
+  top: 0;
+  left: 100%;
+}
+.menu--open ul {
+  display: block;
+}
+
+/* Skin */
+.menu--skin {
+  background: var(--dark-blue);
+  color: var(--white);
+}
+.menu--skin a,
+.menu--skin .menu__toggle {
+  padding: 1rem 2rem;
+  color: var(--white);
+  text-decoration: none;
+}
+.menu--skin li {
+  white-space: nowrap;
+}
+.menu--skin .menu--open > .menu__toggle,
+.menu--skin .menu__toggle:hover,
+.menu--skin a:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+.menu--skin ul {
+  background-color: var(--blue);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  animation: fade 0.2s;
+}
+.menu--skin ul a {
+  padding: 0.75rem 1rem;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Optional Submenu arrows */
+@supports (mask-image: url("")) or (-webkit-mask-image: url("")) {
+  .menu--arrows .menu__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+  .menu--arrows .menu__toggle:after {
+    display: block;
+    content: "";
+    width: 0.75em;
+    height: 0.75em;
+    background-color: var(--white);
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 1200 1200'><path d='M600.006 989.352l178.709-178.709L1200 389.357l-178.732-178.709L600.006 631.91L178.721 210.648L0 389.369l421.262 421.262l178.721 178.721h.023z' fill='white'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200'><path d='M600.006 989.352l178.709-178.709L1200 389.357l-178.732-178.709L600.006 631.91L178.721 210.648L0 389.369l421.262 421.262l178.721 178.721h.023z' fill='white'/></svg>");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .menu--arrows .menu--open > .menu__toggle:after,
+  .menu__toggle:hover:after {
+    background-color: var(--black);
+  }
+}
